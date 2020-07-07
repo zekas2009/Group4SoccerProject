@@ -11,66 +11,82 @@ import org.junit.Test;
  */
 public class APITests {
 
+
     @Test
-    public void getGoalkeepersTest() throws IOException, URISyntaxException {
+    public void getGoalkeepersTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> expectedDoalkeepersList = Arrays.asList(TestConstants.getGOALKEEPERS());
         List<String> actualGoalkeepers = APITasks.getAllGoalkeepers();
         Assert.assertEquals(TestConstants.getGOALKEEPERS().length, actualGoalkeepers.size());
         Assert.assertEquals("Failed to verify goalkeepers from England league", expectedDoalkeepersList, actualGoalkeepers);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getDefendersTest() throws IOException, URISyntaxException {
+    public void getDefendersTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> acturalDefenders = APITasks.getDefenders();
         Assert.assertEquals("Failed to verify number of defenders", TestConstants.getActualDefenders().length, acturalDefenders.size());
         Assert.assertEquals("Invalid defenders list from England", Arrays.asList(TestConstants.getActualDefenders()), acturalDefenders);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getMidfieldersTest() throws IOException, URISyntaxException {
+    public void getMidfieldersTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualMidfielders = APITasks.getMidfielders();
         Assert.assertEquals("Failed to verify number of midfielders", TestConstants.getExpectedMidfielders().length, actualMidfielders.size());
         Assert.assertEquals("Invalid midfielders list from England", Arrays.asList(TestConstants.getExpectedMidfielders()), actualMidfielders);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getMidfielderFromBrazil() throws IOException, URISyntaxException {
+    public void getMidfielderFromBrazil() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualMidfielderFromBrazil = APITasks.getMidfielderFromBrazil();
         Assert.assertEquals("Failed to verify number of midfielders from Brazil", TestConstants.getExpectedMidfielderFromBrazil().length, actualMidfielderFromBrazil.size());
         Assert.assertEquals("Invalid name of player from Brazil on a midfield position", Arrays.asList(TestConstants.getExpectedMidfielderFromBrazil()), actualMidfielderFromBrazil);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getAttackerFromEnglandTest() throws IOException, URISyntaxException {
+    public void getAttackerFromEnglandTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualAttackerFromEngland = APITasks.getAttackerFromEngland();
         Assert.assertEquals("Failed to verify number of attackers", TestConstants.getExpectedAttackers().length, actualAttackerFromEngland.size());
         Assert.assertEquals("Failed to verify list of attackers from England team", Arrays.asList(TestConstants.getExpectedAttackers()), actualAttackerFromEngland);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getSpainCoachTest() throws IOException, URISyntaxException {
+    public void getSpainCoachTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualCoach = APITasks.getSpainCoach();
         Assert.assertEquals(TestConstants.getExpectedCoach().length, actualCoach.size());
         Assert.assertEquals("Invalid coach name", Arrays.asList(TestConstants.getExpectedCoach()), actualCoach);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getAllTeamsTest() throws IOException, URISyntaxException {
+    public void getAllTeamsTest() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualTeams = APITasks.getAllTeams();
         Assert.assertEquals(TestConstants.getExpectedTeams().length, actualTeams.size());
         Assert.assertEquals(Arrays.asList(TestConstants.getExpectedTeams()), actualTeams);
+        Thread.sleep(500);
     }
 
     @Test
-    public void getSecondHighestScorer() throws IOException, URISyntaxException {
+    public void getSecondHighestScorer() throws IOException, URISyntaxException, InterruptedException {
         List<String> actualSecondHighestScorer = APITasks.getSecondHighestScorer();
         Assert.assertEquals(TestConstants.getExpectedSecondHighestScorer().length, actualSecondHighestScorer.size());
         Assert.assertEquals(Arrays.asList(TestConstants.getExpectedSecondHighestScorer()), actualSecondHighestScorer);
+        Thread.sleep(500);
     }
 
     @Test
     public void getAllCompetitionsTest() throws IOException, URISyntaxException {
         List<String> actualCompetitionsList = APITasks.getAllCompetitions();
+
+        for(String c: actualCompetitionsList){
+            System.out.print(" ["+c+"] ");
+
+        }
+
+
         Assert.assertEquals(TestConstants.getExpectedCompetitionsList().size(), actualCompetitionsList.size());
         Assert.assertEquals(TestConstants.getExpectedCompetitionsList(), actualCompetitionsList);
     }

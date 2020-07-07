@@ -1,4 +1,4 @@
-package POJO;
+package AzamatsSolutions.POJO;
 
 public class Name {
 

@@ -1,4 +1,4 @@
-package POJO;
+package AzamatsSolutions.POJO;
 
 import java.util.List;
 
